@@ -2,7 +2,7 @@
 
 function Nav() {
   return (
-    <div>nav</div>
+    <div className="font-poppins">nav</div>
   )
 }
 

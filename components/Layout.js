@@ -1,6 +1,6 @@
 import Nav from "./Nav"
 
-function layout({children}) {
+function Layout({children}) {
   return (
     <div>
         <Nav/>
@@ -9,4 +9,4 @@ function layout({children}) {
   )
 }
 
-export default layout
+export default Layout
