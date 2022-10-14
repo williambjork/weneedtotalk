@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { auth } from "../utils/firebase"
 import { useAuthState } from 'react-firebase-hooks/auth'
+import Image from "next/image";
 
 
 function Nav() {
@@ -27,12 +28,16 @@ console.log(user)
             )}
 
             {user && (
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-6 mr-3">
                     <Link href="/post">
                         <button className="font-medium bg-cyan-500 text-white py-2 px-4 rounded-mg text-small">Post</button>
                     </Link>
                     <Link href="/dashboard">
-                        <img className="w-12 rounded-full cursor-pointer" src={user.photoURL} />
+                        <Image
+                         className="w-12 rounded-full cursor-pointer" 
+                         src={user.photoURL}
+                         width={45}
+                         height={45} />
                     </Link>
                 </div>
             )}
