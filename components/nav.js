@@ -11,7 +11,7 @@ console.log(user)
     
         <nav className="flex justify-between items-ccenter py-10">
             <Link href="/">
-                <button className="text-lg font-medium">We Need to Talk</button>
+                <button className="text-lg font-medium p-3">We Need to Talk</button>
             </Link>
         
 
@@ -20,7 +20,7 @@ console.log(user)
             
             {!user && (
             <Link href={"/auth/login"}>
-                <a className="py-2 px-4 text-sm bg-cyan-500 text-white rounded-lg font-medium ml-8">
+                <a className="py-2 mr-3 px-4 text-sm bg-cyan-500 text-white rounded-lg font-medium ml-8">
                     Join Now
                 </a>
             </Link>
