@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 function Nav() {
 const [user, loading] = useAuthState(auth);
+console.log(user)
 
   return (
     
@@ -31,7 +32,7 @@ const [user, loading] = useAuthState(auth);
                         <button className="font-medium bg-cyan-500 text-white py-2 px-4 rounded-mg text-small">Post</button>
                     </Link>
                     <Link href="/dashboard">
-                        <h1>Dashboard</h1>
+                        <img className="w-12 rounded-full cursor-pointer" src={user.photoURL} />
                     </Link>
                 </div>
             )}
