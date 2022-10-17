@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useRouter} from 'next/router'
 import { useEffect, useState } from 'react'
 import Message from "../components/Message"
+import {BsTrash2Fill } from "react-icons/bs"
+import {AiFillEdit } from "react-icons/ai"
 import { collection, where, query, onSnapshot, doc } from 'firebase/firestore';
 
 
@@ -38,7 +40,12 @@ function dashboard() {
         <div>{posts.map(post => {
 
           return (
-          <Message {...post} key={post.id}></Message>
+          <Message {...post} key={post.id}>
+            <div>
+              <button> <BsTrash2Fill /> Delete </button>
+              <button> <AiFillEdit /> Edit </button>
+            </div>
+          </Message>
           );
 
         })}</div>
