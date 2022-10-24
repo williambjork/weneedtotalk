@@ -6,6 +6,7 @@ import Message from "../components/Message"
 import {BsTrash2Fill } from "react-icons/bs"
 import {AiFillEdit } from "react-icons/ai"
 import { collection, where, query, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
+import Link from 'next/link'
 
 
 
@@ -55,9 +56,13 @@ function dashboard() {
               <BsTrash2Fill /> 
               Delete </button>
 
+            <Link href={{pathname: "/post", query: post}}>
               <button className='text-cyan-500 text-sm flex items-center justify-center gap-2 py-2'> 
               <AiFillEdit /> 
-              Edit </button>
+              Edit 
+              </button>
+            </Link>
+
             </div>
           </Message>
           );
