@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='my-12 text-lg'>
+      <div className='my-12 text-lg flex-col justify-center items-center'>
         <h2 >See what other people are saying</h2>
         {allPosts.map((post) => 
         <Message {...post} key={post.id}>

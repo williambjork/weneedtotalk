@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import Message from "../components/Message"
 import {BsTrash2Fill } from "react-icons/bs"
 import {AiFillEdit } from "react-icons/ai"
-import { collection, where, query, onSnapshot, doc } from 'firebase/firestore';
+import { collection, where, query, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 
 
 
@@ -16,7 +16,7 @@ function dashboard() {
     const [posts, setPosts] = useState([]);
 
 
-    //Check if user is loggen in
+    //Get user data
     const getData = async () => {
       if (loading) return;
       if (!user) return route.push("/auth/login");
@@ -33,6 +33,12 @@ function dashboard() {
         getData();
     }, [user, loading]);
 
+    //Delet post
+    const deletePost = async (id) => {
+      const docRef = doc(db, 'posts', id)
+      await deleteDoc(docRef);
+    }
+
   return (
     
     <div>
@@ -41,15 +47,23 @@ function dashboard() {
 
           return (
           <Message {...post} key={post.id}>
-            <div>
-              <button> <BsTrash2Fill /> Delete </button>
-              <button> <AiFillEdit /> Edit </button>
+            <div className='flex gap-4'>
+
+              <button
+              onClick={() => deletePost(post.id)} 
+              className='text-pink-500 text-sm flex items-center justify-center gap-2 py-2'> 
+              <BsTrash2Fill /> 
+              Delete </button>
+
+              <button className='text-cyan-500 text-sm flex items-center justify-center gap-2 py-2'> 
+              <AiFillEdit /> 
+              Edit </button>
             </div>
           </Message>
           );
 
         })}</div>
-        <button onClick={() => auth.signOut()}>Sign out</button>
+        <button className="font-medium  text-white bg-gray-500 py-2 px-4" onClick={() => auth.signOut()}>Sign out</button>
     </div>
     
   )
